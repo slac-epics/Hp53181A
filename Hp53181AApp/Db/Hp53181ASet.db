@@ -1,0 +1,7 @@
+record(stringout,"$(sys):$(dev)$(I)Setpt") {
+	field(DESC,"Set $(I)")
+	field(ASG,"Internal")
+	field(VAL,"$(V)")
+	field(DTYP,"HP53181A (GPIB)")
+	field(OUT,"#L$(link) A$(address) @0")
+}

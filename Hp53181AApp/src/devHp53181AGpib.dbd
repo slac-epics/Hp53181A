@@ -1,0 +1,9 @@
+#
+# Frequency Counter (53181A) from Agilent
+#
+device(ai,            GPIB_IO,     devAiHp53181AGpib,   "HP53181A (GPIB)")
+device(ao,            GPIB_IO,     devAoHp53181AGpib,   "HP53181A (GPIB)")
+device(bi,            GPIB_IO,     devBiHp53181AGpib,   "HP53181A (GPIB)")
+device(bo,            GPIB_IO,     devBoHp53181AGpib,   "HP53181A (GPIB)")
+device(stringin,      GPIB_IO,     devSiHp53181AGpib,   "HP53181A (GPIB)")
+device(stringout,     GPIB_IO,     devSoHp53181AGpib,   "HP53181A (GPIB)")
