@@ -1,0 +1,66 @@
+Instructions for Hp53181A users                    Last Updated 05/11/2009
+--------------------------------
+
+I - Adding the Hp53181A package to your IOC application:
+-------------------------------------------------------
+
+(1) Add HP53181A and ASYN to configure/RELEASE and clean/rebuild configure.
+
+(2) Link Hp53181A and asyn libraries into your app by adding to 
+    xxxApp/src/Makefile:
+
+   xxx_LIBS += devHp53181AGpib
+   xxx_LIBS += asyn
+
+Note that the order of the above libraries is important.
+
+(3) Add the following .dbd files to xxxApp/src/Makefile 
+    or to xxxApp/src/xxxInclude.dbd:
+
+   xxx_DBD += devHp53181AGpib.dbd
+   xxx_DBD += asyn.dbd
+   xxx_DBD += devGpib.dbd
+   xxx_DBD += drvAsynIPPort.dbd
+   xxx_DBD += drvVxi11.dbd
+   xxx_DBD += drvAsynSerialPort.dbd
+
+(4) Add Hp53131A databases to your application.  For an example that
+    works for the SPEAR main ring and booster, see:
+	Hp53181A/<release>/Hp53181AApp/Db/Hp53181ATest.substitutions
+
+    Note that this substitutions file sets up for 2 frequency counters - one for
+    476.3 and the other for 358.5MHz.  Both use channel 2.  Change the frequency
+    values (in multiple places) to match yours.
+
+
+II - Adding Hp53181A database and LAN box configuration to your IOC startup file:
+---------------------------------------------------------------------------------
+
+(1) Load database created in the previous section (before iocInit).
+
+(2) Add LAN box configuration before iocInit.
+
+    #E5810Reboot("<ip_address>",0)
+    vxi11Configure("<lan_box_link_name>","<ip_address>",0,0.0,"gpib0",0 ,0)
+    asynSetOption("<lan_box_link_name>",0,"rpctimeout","10")
+
+    Note that the <lan_box_link_name> must match the macro in the 
+    substitutions file.  Each LAN box must have a unique link name.
+
+(3) Remember to manually set the GPIB address on the frequency counter to 
+    match the one in the substitutions file.  Each GPIB device on a LAN box
+    must have a unique address.
+
+(4) A test EDM display is available for diagnostics:
+    Hp53181A/<release>/Hp53181AApp/srcDisplay/Hp53181A_diags.edl
+    It requires the same same sys and dev macros that are in the 
+    Hp53181ATest.substitutions file.
+
+(5) If the frequency counter indicates a GPIB error, try:
+    (a) From the display, set "Acq State" to OFF.
+    (b) Power-cycling the frequency counter.
+    (c) From the display, push "Reconfigure Counter".
+    (d) Push "Update Status" multiple times and verify that the "HW Status"
+        shows "+0,"No error" and the "Acq Status" shows "NO_ALARM".
+    (e) Verify the "ID" and "Option" and "Value(Hz)" are correct.  The
+        value updates every second.
