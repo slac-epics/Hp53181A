@@ -1,0 +1,627 @@
+4 0 1
+beginScreenProperties
+major 4
+minor 0
+release 1
+x 204
+y 97
+w 570
+h 400
+font "helvetica-medium-r-18.0"
+ctlFont "helvetica-medium-r-18.0"
+btnFont "helvetica-medium-r-18.0"
+fgColor index 14
+bgColor index 3
+textColor index 14
+ctlFgColor1 index 14
+ctlFgColor2 index 3
+ctlBgColor1 index 3
+ctlBgColor2 index 14
+topShadowColor index 1
+botShadowColor index 14
+title "RF Freq Diags"
+showGrid
+snapToGrid
+gridSize 5
+endScreenProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 60
+w 920
+h 1
+lineColor index 14
+fillColor index 14
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 20
+y 90
+w 47
+h 21
+font "helvetica-bold-r-18.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Atten"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 0
+w 315
+h 25
+font "helvetica-bold-r-24.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "$(sys) $(dev) Counter                                                "
+}
+endObjectProperties
+
+# (Exit Button)
+object activeExitButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 510
+y 10
+w 50
+h 35
+fgColor index 1
+bgColor index 25
+topShadowColor index 1
+botShadowColor index 14
+label "EXIT"
+font "helvetica-bold-r-14.0"
+3d
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 30
+w 315
+h 25
+font "helvetica-bold-r-24.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Agilent 53181A Diags                "
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 110
+y 90
+w 97
+h 21
+font "helvetica-bold-r-18.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Impedance"
+}
+autoSize
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 100
+y 110
+w 110
+h 28
+fgColor index 1
+bgColor index 25
+inconsistentColor index 45
+topShadowColor index 1
+botShadowColor index 14
+controlPv "$(sys):$(dev)Imped"
+font "helvetica-bold-r-18.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 220
+y 90
+w 82
+h 21
+font "helvetica-bold-r-18.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Coupling"
+}
+autoSize
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 220
+y 110
+w 80
+h 28
+fgColor index 1
+bgColor index 25
+inconsistentColor index 45
+topShadowColor index 1
+botShadowColor index 14
+controlPv "$(sys):$(dev)Coupling"
+font "helvetica-bold-r-18.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 105
+y 65
+w 198
+h 21
+font "helvetica-bold-r-18.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Input (Channel 1 Only)"
+}
+autoSize
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 110
+w 80
+h 28
+fgColor index 1
+bgColor index 25
+inconsistentColor index 45
+topShadowColor index 1
+botShadowColor index 14
+controlPv "$(sys):$(dev)Attn"
+font "helvetica-bold-r-18.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 320
+y 90
+w 74
+h 21
+font "helvetica-bold-r-18.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "LP Filter"
+}
+autoSize
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 310
+y 110
+w 80
+h 28
+fgColor index 1
+bgColor index 25
+inconsistentColor index 45
+topShadowColor index 1
+botShadowColor index 14
+controlPv "$(sys):$(dev)FiltState"
+font "helvetica-bold-r-18.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 35
+y 150
+w 320
+h 20
+controlPv "$(sys):$(dev)ID"
+fgColor index 14
+fgAlarm
+bgColor index 5
+fill
+font "helvetica-medium-r-18.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 10
+y 150
+w 19
+h 21
+font "helvetica-bold-r-18.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "ID"
+}
+autoSize
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 105
+y 275
+w 380
+h 20
+controlPv "$(sys):$(dev)Status"
+fgColor index 14
+fgAlarm
+bgColor index 5
+fill
+font "helvetica-medium-r-18.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 10
+y 275
+w 90
+h 21
+font "helvetica-bold-r-18.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "HW Status"
+}
+autoSize
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 235
+w 150
+h 30
+fgColor index 1
+onColor index 25
+offColor index 25
+topShadowColor index 1
+botShadowColor index 14
+controlPv "$(sys):$(dev)Status.PROC"
+pressValue "0"
+onLabel "Update Status"
+offLabel "Update Status"
+3d
+font "helvetica-bold-r-18.0"
+endObjectProperties
+
+# (Text)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 3
+release 0
+x 10
+y 202
+w 475
+h 21
+controlPv "$(sys):$(dev)AnythingSetpt"
+format "string"
+font "helvetica-bold-r-18.0"
+fgColor index 1
+bgColor index 25
+editable
+autoHeight
+motifWidget
+limitsFromDb
+nullColor index 1
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 10
+y 180
+w 210
+h 21
+font "helvetica-bold-r-18.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Send String to Counter:"
+}
+autoSize
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 170
+y 235
+w 280
+h 30
+fgColor index 1
+onColor index 25
+offColor index 25
+topShadowColor index 1
+botShadowColor index 14
+controlPv "$(sys):$(dev)SetSeq.PROC"
+pressValue "0"
+onLabel "Reconfigure Counter"
+offLabel "Reconfigure Counter"
+3d
+font "helvetica-bold-r-18.0"
+endObjectProperties
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 105
+y 305
+w 160
+h 25
+fgColor index 14
+bgColor index 5
+selectColor index 8
+inconsistentColor index 14
+topShadowColor index 1
+botShadowColor index 14
+controlPv "$(sys):$(dev)Disable"
+font "helvetica-medium-r-18.0"
+orientation "horizontal"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 10
+y 305
+w 85
+h 21
+font "helvetica-bold-r-18.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Acq State"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 10
+y 340
+w 95
+h 21
+font "helvetica-bold-r-18.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Acq Status"
+}
+autoSize
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 120
+y 340
+w 120
+h 20
+controlPv "$(sys):$(dev)Hz.STAT"
+fgColor index 14
+fgAlarm
+bgColor index 5
+fill
+font "helvetica-bold-r-18.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 115
+y 370
+w 150
+h 20
+controlPv "$(sys):$(dev)Hz"
+fgColor index 14
+fgAlarm
+bgColor index 5
+fill
+font "helvetica-medium-r-18.0"
+fontAlign "center"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 10
+y 370
+w 92
+h 21
+font "helvetica-bold-r-18.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Value (Hz)"
+}
+autoSize
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 2
+release 0
+x 370
+y 350
+w 170
+h 25
+fgColor index 14
+bgColor index 7
+topShadowColor index 1
+botShadowColor index 14
+font "helvetica-bold-r-14.0"
+buttonLabel "Freq Counter Asyn"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "asynRecord"
+}
+menuLabel {
+  0 "Asyn Control"
+}
+symbols {
+  0 "P=$(sys):$(dev),R=AsynControl"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 430
+y 150
+w 130
+h 20
+controlPv "$(sys):$(dev)Option"
+fgColor index 14
+fgAlarm
+bgColor index 5
+fill
+font "helvetica-medium-r-18.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 365
+y 150
+w 62
+h 21
+font "helvetica-bold-r-18.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Option"
+}
+autoSize
+endObjectProperties
+
