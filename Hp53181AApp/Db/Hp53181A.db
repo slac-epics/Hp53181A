@@ -1,0 +1,146 @@
+record(bo,"$(sys):$(dev)Disable") {
+  field(DESC,"Disable Readback")
+  field(ASG,"Internal")
+  field(DOL,"1")
+  field(ZNAM,"On")
+  field(ONAM,"Off")
+  field(OSV,"MAJOR")
+}
+record(seq,"$(sys):$(dev)SetSeq") {
+  field(DESC,"Set Config")
+  field(ASG,"Internal")
+  field(PINI,"YES")
+  field(DOL1,"1")
+  field(LNK1,"$(sys):$(dev)Disable  PP")
+  field(LNK2,"$(sys):$(dev)ConfigSetpt.PROC  PP")
+  field(DLY3,"0.2")
+  field(LNK3,"$(sys):$(dev)ArmStartSetpt.PROC  PP")
+  field(DLY4,"0.2")
+  field(LNK4,"$(sys):$(dev)ArmStopSetpt.PROC  PP")
+  field(DLY5,"0.2")
+  field(LNK5,"$(sys):$(dev)ArmTimerSetpt.PROC  PP")
+  field(DLY6,"0.2")
+  field(LNK6,"$(sys):$(dev)TrigContSetpt.PROC  PP")
+  field(FLNK,"$(sys):$(dev)SetSeq2")
+}
+
+record(seq,"$(sys):$(dev)SetSeq2") {
+  field(DESC,"Set Config")
+  field(ASG,"Internal")
+  field(DLY1,"0.2")
+  field(LNK1,"$(sys):$(dev)Attn.PROC  PP")
+  field(DLY2,"0.2")
+  field(LNK2,"$(sys):$(dev)FiltState.PROC  PP")
+  field(DLY3,"0.2")
+  field(LNK3,"$(sys):$(dev)Coupling.PROC  PP")
+  field(DLY4,"0.2")
+  field(LNK4,"$(sys):$(dev)Imped.PROC  PP")
+  field(DLY5,"0.2")
+  field(LNK5,"$(sys):$(dev)Arm.PROC  PP")
+  field(DLY6,"1")
+  field(LNK6,"$(sys):$(dev)Disable  PP")
+  field(LNK7,"$(sys):$(dev)ID.PROC  PP")
+  field(DLY8,"0.2")
+  field(LNK8,"$(sys):$(dev)Status.PROC  PP")
+}
+
+record(ai, "$(sys):$(dev)Hz") {
+  field(DESC, "Frequency in Hz")
+  field(DTYP, "HP53181A (GPIB)")
+  field(INP, "#L$(link) A$(address) @1")
+  field(EGU, "Hz")
+  field(PREC, "2")
+  field(MDEL, "0.01")
+  field(SCAN, "1 second")
+  field(FLNK, "$(sys):$(dev)HzNo$(bnam)")
+  field(SDIS,"$(sys):$(dev)Disable  NPP NMS")
+}
+
+record(calc, "$(sys):$(dev)HzNo$(bnam)") {
+  field(DESC, "Freq in Hz - base")
+  field(CALC, "A-B")
+  field(INPA, "$(sys):$(dev)Hz NPP NMS")
+  field(INPB, "$(bval)")
+  field(EGU, "Hz")
+  field(PREC, "2")
+  field(MDEL, "0.01")
+  field(FLNK, "$(sys):$(dev)")
+}
+
+record(calc, "$(sys):$(dev)") {
+  field(DESC, "Frequency")
+  field(CALC, "A/1000000.0")
+  field(INPA, "$(sys):$(dev)Hz NPP MS")
+  field(EGU, "MHz")
+  field(PREC, "7")
+  field(MDEL, "0.00000005")
+  field(HSV, "MINOR")
+  field(LSV, "MINOR")
+  field(HHSV, "MAJOR")
+  field(LLSV, "MAJOR")
+  field(HOPR, "$(drvh)")
+  field(LOPR, "$(drvl)")
+  field(HIGH, "$(high)")
+  field(LOW, "$(low)")
+  field(HIHI, "$(hihi)")
+  field(LOLO, "$(lolo)")
+  field(FLNK, "$(sys):$(dev)Arm")
+}
+
+record(stringout,"$(sys):$(dev)Arm") {
+  field(DESC,"Arm")
+  field(ASG,"Internal")
+  field(VAL,"INIT")
+  field(DTYP,"HP53181A (GPIB)")
+  field(OUT,"#L$(link) A$(address) @0")
+}
+
+record(bo, "$(sys):$(dev)Attn") {
+  field(DESC, "Freq Counter Inp Atten ")
+  field(DTYP, "HP53181A (GPIB)")
+  field(DOL,"$(attn)")
+  field(OUT, "#L$(link) A$(address) @4")
+}
+
+record(bo, "$(sys):$(dev)FiltState") {
+  field(DESC, "Freq Counter Filter Off/On")
+  field(DTYP, "HP53181A (GPIB)")
+  field(DOL,"$(filt)")
+  field(OUT, "#L$(link) A$(address) @5")
+}
+
+record(bo, "$(sys):$(dev)Coupling") {
+  field(DESC, "Freq Counter Inp Coupling")
+  field(DTYP, "HP53181A (GPIB)")
+  field(DOL,"$(coup)")
+  field(OUT, "#L$(link) A$(address) @6")
+}
+
+record(bo, "$(sys):$(dev)Imped") {
+  field(DESC, "Freq Counter Inp Impedance")
+  field(DTYP, "HP53181A (GPIB)")
+  field(DOL,"$(imped)")
+  field(OUT, "#L$(link) A$(address) @7")
+}
+
+record(stringin, "$(sys):$(dev)ID") {
+  field(DESC, "Freq Counter ID String")
+  field(DTYP, "HP53181A (GPIB)")
+  field(INP, "#L$(link) A$(address) @8")
+  field(FLNK, "$(sys):$(dev)Option")
+  field(SDIS,"$(sys):$(dev)Disable  NPP NMS")
+}
+
+record(stringin, "$(sys):$(dev)Option") {
+  field(DESC, "Freq Counter Option String")
+  field(DTYP, "HP53181A (GPIB)")
+  field(INP, "#L$(link) A$(address) @2")
+  field(SDIS,"$(sys):$(dev)Disable  NPP NMS")
+}
+
+record(stringin, "$(sys):$(dev)Status") {
+  field(DESC, "Freq Counter Status")
+  field(DTYP, "HP53181A (GPIB)")
+  field(INP, "#L$(link) A$(address) @9")
+  field(SDIS,"$(sys):$(dev)Disable  NPP NMS")
+}
