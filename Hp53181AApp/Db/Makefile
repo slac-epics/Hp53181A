@@ -11,7 +11,6 @@ include $(TOP)/configure/CONFIG
 #----------------------------------------------------
 #  Creation of <name>.dbd file from <name>Include.dbd
 #DBDNAME += HP53181A.dbd
-
 #----------------------------------------------------
 # Add databases, templates, substitutions like this
 DB += Hp53181A.db
