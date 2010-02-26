@@ -22,15 +22,8 @@ EPICS_MODULES=$(EPICS_SITE_TOP)/modules
 # ==============================================================
 # Define the version of EPICS BASE that you will use
 # =============================================================
-BASE_MODULE_VERSION=base-R3-14-8-2-lcls3
+BASE_MODULE_VERSION=base-R3-14-8-2-lcls5
 #BASE_MODULE_VERSION=base-R3-14-11
-
-# ==================================================================================
-#If using macro substitutions, point MSI at the binary:
-#EXTENSIONS_MODULE_VERSION=extensions-R3-14-8-2
-#EXTENSIONS_MODULE_VERSION=extensions-R3-14-11
-#MSI=$(EPICS_SITE_TOP)/extensions/$(EXTENSIONS_MODULE_VERSION)/bin/$(EPICS_HOST_ARCH)/msi
-# ==================================================================================
 
 # ===============================================================
 # Define the version of modules needed by
@@ -40,7 +33,8 @@ BASE_MODULE_VERSION=base-R3-14-8-2-lcls3
 # http://www.slac.stanford.edu/grp/lcls/controls/global/sw/epics/modules/
 # ===============================================================
 # SEQ_MODULE_VERSION=seq-R2-0-11-lcls1
-ASYN_MODULE_VERSION=asyn-R4-12-lcls3
+#ASYN_MODULE_VERSION=asyn-R4-12-lcls3
+ASYN_MODULE_VERSION=asyn-R4-9-lcls4
 
 # ============================================================
 # External Support
@@ -55,10 +49,4 @@ EPICS_BASE=$(EPICS_SITE_TOP)/base/$(BASE_MODULE_VERSION)
 # EPICS_BASE usually appears last so other apps can override stuff:
 # =================================================================
 # End of file
-
-
-
-
-
-
 
