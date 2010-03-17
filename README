@@ -1,39 +1,58 @@
-Instructions for Hp53181A users                    Last Updated 05/11/2009
+Instructions for Hp53181A users                    Last Updated 03/16/2010
 --------------------------------
 
-I - Adding the Hp53181A package to your IOC application:
--------------------------------------------------------
+I - Building the Hp53181A Frequency Counter module:
+--------------------------------------------------------
 
-(1) Add HP53181A and ASYN to configure/RELEASE and clean/rebuild configure.
+(1) The Hp53181A module can be built in two ways (a) with asyn and GPIB drivers or 
+    (b) with asyn and stream modules.
 
-(2) Link Hp53181A and asyn libraries into your app by adding to 
+(2) Original code from Stephanie Allison was built with ASYN/GPIB combination. 
+    Hp53181AApp contains this original code.
+
+(3) Support for streamDevice was added by Shantha Condamoor. 
+    streamHp53181AApp contains streamDevice support.
+
+(4) The stream protocol file has been defined and added to streamHp53181AApp/Db/Hp53181A.proto.db.
+    The files Hp53181A.stream.db and Hp53181ASet.stream.db contain the database record definitions 
+	using these stream protocols. 
+
+(5) A sample subsititutions file, Hp53181ATest.substitutions, has been provided for IOC applications.
+    Override $(sys), $(dev), $(link) and $(address) in the substitutions file with the actual IOC name, 
+	GPIB bus (also called as link) and GPIB port (also called as address) on the bus.
+
+(6) Add asyn (and if using stream, streamdevice) to configure/RELEASE and clean/rebuild Hp53181A module.
+
+
+II - Adding the Hp53181A package to your IOC application:
+--------------------------------------------------------
+Link Hp53181A and asyn libraries into your app by adding to 
     xxxApp/src/Makefile:
 
    xxx_LIBS += devHp53181AGpib
    xxx_LIBS += asyn
-
+   xxx_LIBS += stream (if using streamDevice, stream)
+   
 Note that the order of the above libraries is important.
 
 (3) Add the following .dbd files to xxxApp/src/Makefile 
     or to xxxApp/src/xxxInclude.dbd:
 
-   xxx_DBD += devHp53181AGpib.dbd
+   xxx_DBD += devHp53181AGpib.dbd (if using ASYN/GPIB) or stream.dbd (if using streamDevice)
    xxx_DBD += asyn.dbd
    xxx_DBD += devGpib.dbd
    xxx_DBD += drvAsynIPPort.dbd
    xxx_DBD += drvVxi11.dbd
    xxx_DBD += drvAsynSerialPort.dbd
 
-(4) Add Hp53131A databases to your application.  For an example that
-    works for the SPEAR main ring and booster, see:
+(4) Add Hp53131A databases to your application.  For an example see:
 	Hp53181A/<release>/Hp53181AApp/Db/Hp53181ATest.substitutions
 
     Note that this substitutions file sets up for 2 frequency counters - one for
     476.3 and the other for 358.5MHz.  Both use channel 2.  Change the frequency
     values (in multiple places) to match yours.
 
-
-II - Adding Hp53181A database and LAN box configuration to your IOC startup file:
+III - Adding Hp53181A database and LAN box configuration to your IOC startup file:
 ---------------------------------------------------------------------------------
 
 (1) Load database created in the previous section (before iocInit).

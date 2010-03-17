@@ -1,9 +1,19 @@
 Release Notes for the Hp53181A RF Frequency Counter GPIB module
 ---------------------------------------------------------------
-Hp53181A-R1-1-0: Built against rtems 4.9.3 and EPICS BASE:
-                 base-R3-14-8-2-lcls5
-
 Hp53181A-R0-0-0: Feb 16, 2010
 	Initial release. Built for LCLS environment. Based on Stephanie Allison's source
 	in SPEAR CVS.
+	
+Hp53181A-R1-1-0: Built against rtems 4.9.3 and EPICS BASE: base-R3-14-8-2-lcls5
+
+Hp53181A-R1-2-0: Mar 16, 2010
+	Added streamDevice Support. 
+	Defined and added the stream protocols for Hp531811A.
+	
+	Also, built against latest modules as of date:
+	BASE:base-R3-14-8-2-lcls5
+	STREAMDEVICE:streamdevice-R2-4-lcls2
+	ASYN:asyn-R4-9-lcls4
+
+
 	
