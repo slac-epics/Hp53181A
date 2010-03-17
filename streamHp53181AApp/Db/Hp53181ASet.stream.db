@@ -1,0 +1,7 @@
+record(stringout,"$(sys):$(dev)$(I)Setpt") {
+	field(DESC,"Set $(I)")
+	field(ASG,"Internal")
+	field(VAL,"$(V)")
+    field(DTYP, "stream")
+    field(OUT, "@Hp53181A.proto.db SET_CH_VAL bus2 3")   
+}

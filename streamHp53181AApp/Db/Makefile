@@ -13,8 +13,9 @@ include $(TOP)/configure/CONFIG
 #DBDNAME += HP53181A.dbd
 #----------------------------------------------------
 # Add databases, templates, substitutions like this
-DB += Hp53181A.db
-DB += Hp53181ASet.db
+DB += Hp53181A.proto.db
+DB += Hp53181A.stream.db
+DB += Hp53181ASet.stream.db
 #----------------------------------------------------
 # Declare template files which do not show up in DB
 #USES_TEMPLATE += HP53181A.template

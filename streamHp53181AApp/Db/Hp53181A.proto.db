@@ -1,0 +1,67 @@
+InTerminator  = CR LF;
+OutTerminator = CR LF;
+ReplyTimeout  =  800;
+ReadTimeout   =  100;
+WriteTimeout  =  100;
+ExtraInput    = Ignore;
+
+# Protocol to get channel value	
+GET_CH_VAL {
+	out "FETCH?";
+	in "%f";
+	wait 20;
+}
+
+# Protocol to get option
+GET_OPT {
+	out "*OPT?";
+	in "%s";	
+	wait 20; 
+}
+
+# Protocol to get IDENTITY
+GET_IDN {
+	out "*IDN?";
+	in "%s";	
+	wait 20; 
+}
+
+# Protocol to get system error
+GET_SYST_ERR {
+	out "SYST:ERR?";
+	in "%s";	
+	wait 20; 
+}
+
+# Protocol for general stringout
+SET_CH_VAL {
+	out "%s";	
+	wait 20; 
+}
+
+# Protocol to set freq attenuation
+SET_INP_ATT {
+	out "INP:ATT \$1";
+	wait 20;
+}
+
+# Protocol to set low-pass filter state
+SET_INP_FILT {
+	out "INP:FILT \$1";
+	wait 20;
+}
+
+# Protocol to set input coupling
+SET_INP_COUP {
+	out "INP:COUP \$1";
+	wait 20;
+}
+
+# Protocol to set input impedance
+SET_INP_IMP {
+	out "INP:IMP \$1";
+	wait 20;
+}
+
+
+

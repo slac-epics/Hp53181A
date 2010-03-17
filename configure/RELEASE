@@ -1,17 +1,20 @@
-# RELEASE Location of external products
+#RELEASE Location of external products
 # Run "gnumake clean uninstall install" in the application
 # top directory each time this file is changed.
+
+include $(TOP)/RELEASE_SITE
 
 # =============================================================
 # Define the top of the EPICS tree for your site.
 # We will build some tools/scripts that allow us to
 # change this easily when relocating software.
 # ==============================================================
-include $(TOP)/RELEASE_SITE
 
-#EPICS_SITE_TOP=/nfs/slac/g/lcls/build/epics
-#EPICS_SITE_TOP=/afs/slac/g/lcls/epics
-TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
+# ==================================================================================
+#If using macro substitutions, point MSI at the binary:
+EXTENSIONS_MODULE_VERSION=extensions-R3-14-8-2
+MSI=$(EPICS_SITE_TOP)/extensions/$(EXTENSIONS_MODULE_VERSION)/bin/$(EPICS_HOST_ARCH)/msi
+# ==================================================================================
 
 # =============================================================
 # Define location of module tree with respect to
@@ -19,34 +22,28 @@ TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
 # =============================================================
 EPICS_MODULES=$(EPICS_SITE_TOP)/modules
 
+
 # ==============================================================
 # Define the version of EPICS BASE that you will use
 # =============================================================
 BASE_MODULE_VERSION=base-R3-14-8-2-lcls5
-#BASE_MODULE_VERSION=base-R3-14-11
 
-# ===============================================================
+# =============================================================
 # Define the version of modules needed by
 # IOC apps or other Support apps
-# Make sure that you look at the website to discover
-# the appropriate version dependencies
-# http://www.slac.stanford.edu/grp/lcls/controls/global/sw/epics/modules/
-# ===============================================================
-# SEQ_MODULE_VERSION=seq-R2-0-11-lcls1
-#ASYN_MODULE_VERSION=asyn-R4-12-lcls3
+# =============================================================
+STREAMDEVICE_MODULE_VERSION=streamdevice-R2-4-lcls2
 ASYN_MODULE_VERSION=asyn-R4-9-lcls4
 
 # ============================================================
-# External Support
+# Support module locations
 # ============================================================
-# SNCSEQ=$(EPICS_MODULES)/seq/$(SEQ_MODULE_VERSION)
+STREAMDEVICE=$(EPICS_MODULES)/streamdevice/$(STREAMDEVICE_MODULE_VERSION)
 ASYN=$(EPICS_MODULES)/asyn/$(ASYN_MODULE_VERSION)
-
-EPICS_BASE=$(EPICS_SITE_TOP)/base/$(BASE_MODULE_VERSION)
 
 # =================================================================
 # Define EPICS_BASE
 # EPICS_BASE usually appears last so other apps can override stuff:
 # =================================================================
-# End of file
+EPICS_BASE=$(EPICS_SITE_TOP)/base/$(BASE_MODULE_VERSION)
 

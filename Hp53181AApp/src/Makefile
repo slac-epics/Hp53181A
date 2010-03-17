@@ -6,14 +6,17 @@ include $(TOP)/configure/CONFIG
 #=============================
 # Build an IOC support library
 
-LIBRARY_IOC += devHp53181AGpib
+LIBRARY_IOC += Hp53181AGpib
 
-DBD += devHp53181AGpib.dbd
+# devHp53181AGpib.dbd will be created and installed
+DBD += Hp53181AGpib.dbd
 
 # The following are compiled and added to the Support library
-devHp53181AGpib_SRCS    += devHp53181AGpib.c
+Hp53181AGpib_SRCS    += Hp53181AGpib.c
 
-devHp53181AGpib_LIBS += $(EPICS_BASE_IOC_LIBS)
+#add a definition for each support application used by this module
+
+Hp53181AGpib_LIBS += $(EPICS_BASE_IOC_LIBS)
 
 #===========================
 include $(TOP)/configure/RULES
