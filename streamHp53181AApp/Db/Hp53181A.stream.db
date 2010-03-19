@@ -70,7 +70,7 @@ record(ai, "$(sys):$(dev)Hz") {
   field(EGU, "Hz")
   field(PREC, "2")
   field(MDEL, "0.01")
-  field(SCAN, "1 second")
+  field(SCAN, "10 second")
   field(FLNK, "$(sys):$(dev)HzNo$(bnam)")
   field(SDIS,"$(sys):$(dev)Disable  NPP NMS")
 }
