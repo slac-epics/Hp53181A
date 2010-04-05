@@ -32,8 +32,8 @@ BASE_MODULE_VERSION=base-R3-14-8-2-lcls6
 # Define the version of modules needed by
 # IOC apps or other Support apps
 # =============================================================
-STREAMDEVICE_MODULE_VERSION=streamdevice-R2-4-lcls2
-ASYN_MODULE_VERSION=asyn-R4-9-lcls4
+STREAMDEVICE_MODULE_VERSION=streamdevice-R2-snapshot20081007-lcls2
+ASYN_MODULE_VERSION=asyn-R4-9-lcls5
 
 # ============================================================
 # Support module locations

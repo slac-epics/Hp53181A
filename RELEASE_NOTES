@@ -15,5 +15,11 @@ Hp53181A-R1-2-0: Mar 16, 2010
 	STREAMDEVICE:streamdevice-R2-4-lcls2
 	ASYN:asyn-R4-9-lcls4
 
+Hp53181A-R1-2-1: Apr 5, 2010
+        Scan period for RFFreqHz increased from 1 sec to 10 sec.
 
-	
+Hp53181A-R1-3-0: Apr 5, 2010
+	BASE:base-R3-14-8-2-lcls6
+	STREAMDEVICE:streamdevice-R2-snapshot20081007-lcls2
+	ASYN:asyn-R4-9-lcls5
+
