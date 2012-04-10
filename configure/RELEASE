@@ -2,38 +2,28 @@
 # Run "gnumake clean uninstall install" in the application
 # top directory each time this file is changed.
 
+# Pickup the path to your EPICS top level directory
+# This is where EPICS lives at your site.
 include $(TOP)/RELEASE_SITE
 
-# =============================================================
-# Define the top of the EPICS tree for your site.
-# We will build some tools/scripts that allow us to
-# change this easily when relocating software.
-# ==============================================================
-
-# ==================================================================================
-#If using macro substitutions, point MSI at the binary:
-EXTENSIONS_MODULE_VERSION=extensions-R3-14-8-2
-MSI=$(EPICS_SITE_TOP)/extensions/$(EXTENSIONS_MODULE_VERSION)/bin/$(EPICS_HOST_ARCH)/msi
-# ==================================================================================
+TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
 
 # =============================================================
-# Define location of module tree with respect to
-# EPICS_SITE_TOP
+# Define location of module tree 
 # =============================================================
-EPICS_MODULES=$(EPICS_SITE_TOP)/modules
-
+EPICS_MODULES=$(MODULES_SITE_TOP)
 
 # ==============================================================
 # Define the version of EPICS BASE that you will use
 # =============================================================
-BASE_MODULE_VERSION=base-R3-14-8-2-lcls6
+BASE_MODULE_VERSION=$(EPICS_BASE_VER)
 
 # =============================================================
 # Define the version of modules needed by
 # IOC apps or other Support apps
 # =============================================================
-STREAMDEVICE_MODULE_VERSION=streamdevice-R2-snapshot20081007-lcls2
-ASYN_MODULE_VERSION=asyn-R4-9-lcls5
+STREAMDEVICE_MODULE_VERSION=streamdevice-R2-5-lcls2
+ASYN_MODULE_VERSION=asyn-R4-18-lcls2
 
 # ============================================================
 # Support module locations
