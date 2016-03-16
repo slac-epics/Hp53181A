@@ -66,7 +66,7 @@ record(seq,"$(sys):$(dev)SetSeq2") {
 record(ai, "$(sys):$(dev)Hz") {
   field(DESC, "Frequency in Hz")
   field(DTYP, "stream")
-  field(INP, "@Hp53181A.proto.db GET_CH_VAL bus2 3")    
+  field(INP, "@Hp53181A.proto.db GET_CH_VAL $(link) $(address)")    
   field(EGU, "Hz")
   field(PREC, "2")
   field(MDEL, "0.01")
@@ -111,41 +111,41 @@ record(stringout,"$(sys):$(dev)Arm") {
   field(ASG,"Internal")
   field(VAL,"INIT")
   field(DTYP, "stream")
-  field(OUT, "@Hp53181A.proto.db SET_CH_VAL bus2 3")    
+  field(OUT, "@Hp53181A.proto.db SET_CH_VAL $(link) $(address)")    
 }
 
 record(bo, "$(sys):$(dev)Attn") {
   field(DESC, "Freq Counter Inp Atten ")
   field(DTYP, "stream")
   field(DOL,"$(attn)")  
-  field(OUT, "@Hp53181A.proto.db SET_INP_ATT($(attn)) bus2 3")    
+  field(OUT, "@Hp53181A.proto.db SET_INP_ATT($(attn)) $(link) $(address)")    
 }
 
 record(bo, "$(sys):$(dev)FiltState") {
   field(DESC, "Freq Counter Filter Off/On")
   field(DTYP, "stream")   
   field(DOL,"$(filt)")
-  field(OUT, "@Hp53181A.proto.db SET_INP_FILT($(filt)) bus2 3")      
+  field(OUT, "@Hp53181A.proto.db SET_INP_FILT($(filt)) $(link) $(address)")      
 }
 
 record(bo, "$(sys):$(dev)Coupling") {
   field(DESC, "Freq Counter Inp Coupling")
   field(DTYP, "stream") 
   field(DOL,"$(coup)")
-  field(OUT, "@Hp53181A.proto.db SET_INP_COUP($(coup)) bus2 3")        
+  field(OUT, "@Hp53181A.proto.db SET_INP_COUP($(coup)) $(link) $(address)")        
 }
 
 record(bo, "$(sys):$(dev)Imped") {
   field(DESC, "Freq Counter Inp Impedance")
   field(DTYP, "stream") 
   field(DOL,"$(imped)")
-  field(OUT, "@Hp53181A.proto.db SET_INP_IMP($(imped)) bus2 3")    
+  field(OUT, "@Hp53181A.proto.db SET_INP_IMP($(imped)) $(link) $(address)")    
 }
 
 record(stringin, "$(sys):$(dev)ID") {
   field(DESC, "Freq Counter ID String")
   field(DTYP, "stream") 
-  field(INP, "@Hp53181A.proto.db GET_IDN bus2 3")   
+  field(INP, "@Hp53181A.proto.db GET_IDN $(link) $(address)")   
   field(FLNK, "$(sys):$(dev)Option")
   field(SDIS,"$(sys):$(dev)Disable  NPP NMS")
 }
@@ -153,13 +153,13 @@ record(stringin, "$(sys):$(dev)ID") {
 record(stringin, "$(sys):$(dev)Option") {
   field(DESC, "Freq Counter Option String")
   field(DTYP, "stream")
-  field(INP, "@Hp53181A.proto.db GET_OPT bus2 3")  
+  field(INP, "@Hp53181A.proto.db GET_OPT $(link) $(address)")  
   field(SDIS,"$(sys):$(dev)Disable  NPP NMS")
 }
 
 record(stringin, "$(sys):$(dev)Status") {
   field(DESC, "Freq Counter Status")
   field(DTYP, "stream")
-  field(INP, "@Hp53181A.proto.db GET_SYST_ERR bus2 3")
+  field(INP, "@Hp53181A.proto.db GET_SYST_ERR $(link) $(address)")
   field(SDIS,"$(sys):$(dev)Disable  NPP NMS")
 }

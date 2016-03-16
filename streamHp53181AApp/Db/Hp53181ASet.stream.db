@@ -3,5 +3,5 @@ record(stringout,"$(sys):$(dev)$(I)Setpt") {
 	field(ASG,"Internal")
 	field(VAL,"$(V)")
     field(DTYP, "stream")
-    field(OUT, "@Hp53181A.proto.db SET_CH_VAL bus2 3")   
+    field(OUT, "@Hp53181A.proto.db SET_CH_VAL $(link) $(address)")   
 }
