@@ -1,5 +1,7 @@
 Release Notes for the Hp53181A RF Frequency Counter GPIB module
 ---------------------------------------------------------------
+Hp53181A-R1-3-4: scondam: 
+		Build with asyn-R4-26_0 and streamdevice-R2-6_1-4
 Hp53181A-R1-3-3: Use $(link) and $(address) instead of hard-coded bus2 and 3 in:
 		Hp53181A.stream.db
 		Hp53181ASet.stream.db
