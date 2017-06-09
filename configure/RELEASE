@@ -22,10 +22,8 @@ BASE_MODULE_VERSION=$(EPICS_BASE_VER)
 # Define the version of modules needed by
 # IOC apps or other Support apps
 # =============================================================
-#STREAMDEVICE_MODULE_VERSION=streamdevice-R2-5_1-0
-#ASYN_MODULE_VERSION=asyn-R4-20_1-1
-STREAMDEVICE_MODULE_VERSION=streamdevice-R2-6_1-4
-ASYN_MODULE_VERSION=asyn-R4-26_0
+STREAMDEVICE_MODULE_VERSION=R2.7.7-0.2
+ASYN_MODULE_VERSION=R4.31-0.1.0
 # ============================================================
 # Support module locations
 # ============================================================
