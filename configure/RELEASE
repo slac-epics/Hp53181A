@@ -2,37 +2,20 @@
 # Run "gnumake clean uninstall install" in the application
 # top directory each time this file is changed.
 
-# Pickup the path to your EPICS top level directory
-# This is where EPICS lives at your site.
-include $(TOP)/RELEASE_SITE
-
 TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
 
-# =============================================================
-# Define location of module tree 
-# =============================================================
-EPICS_MODULES=$(MODULES_SITE_TOP)
+#SUPPORT=/corvette/home/epics/devel
+-include $(TOP)/../configure/SUPPORT.$(EPICS_HOST_ARCH)
+-include $(TOP)/configure/RELEASE.local
 
-# ==============================================================
-# Define the version of EPICS BASE that you will use
-# =============================================================
-BASE_MODULE_VERSION=$(EPICS_BASE_VER)
+# ASYN is needed to compile asyn device support
+#ASYN=$(SUPPORT)/asyn-4-17
 
-# =============================================================
-# Define the version of modules needed by
-# IOC apps or other Support apps
-# =============================================================
-STREAMDEVICE_MODULE_VERSION=R2.7.7-0.2
-ASYN_MODULE_VERSION=R4.31-0.1.0
-# ============================================================
-# Support module locations
-# ============================================================
-STREAMDEVICE=$(EPICS_MODULES)/streamdevice/$(STREAMDEVICE_MODULE_VERSION)
-ASYN=$(EPICS_MODULES)/asyn/$(ASYN_MODULE_VERSION)
-
-# =================================================================
-# Define EPICS_BASE
 # EPICS_BASE usually appears last so other apps can override stuff:
-# =================================================================
-EPICS_BASE=$(EPICS_SITE_TOP)/base/$(BASE_MODULE_VERSION)
+#EPICS_BASE=/corvette/usr/local/epics/base-3.14.12.1
+-include $(TOP)/../configure/EPICS_BASE.$(EPICS_HOST_ARCH)
+
+#Capfast users may need the following definitions
+#CAPFAST_TEMPLATES=
+#SCH2EDIF_PATH=
 
