@@ -1,5 +1,8 @@
 Release Notes for the Hp53181A RF Frequency Counter GPIB module
 ---------------------------------------------------------------
+R1.3.6: slepicka:
+	First version with the Git Workflow.
+
 Hp53181A-R1-3-5: scondam: 
 		Build with asyn R4.31-0.1.0 and streamdevice R2.7.7-0.2
 		
