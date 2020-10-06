@@ -113,6 +113,10 @@ static struct gpibCmd gpibCmds[] =
   {&DSET_SI, GPIBREAD  ,       IB_Q_LOW, "SYST:ERR?\n"  , NULL,
    0,40,NULL,0,0,NULL,NULL,NULL},
   
+  /* Param 10 - device clear */
+  {&DSET_BO, GPIBSDC   ,       IB_Q_LOW, NULL           , NULL,
+   0,40,NULL,0,0,NULL,NULL,NULL},
+  
 };
 
 /* The following is the number of elements in the command array above.  */

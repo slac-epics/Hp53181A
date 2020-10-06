@@ -1,6 +1,6 @@
 record(bo,"$(sys):$(dev)Disable") {
   field(DESC,"Disable Readback")
-  field(ASG,"Internal")
+  field(PINI,"YES")
   field(DOL,"1")
   field(ZNAM,"On")
   field(ONAM,"Off")
@@ -12,29 +12,26 @@ record(seq,"$(sys):$(dev)SetSeq") {
   field(PINI,"YES")
   field(DOL1,"1")
   field(LNK1,"$(sys):$(dev)Disable  PP")
-  field(LNK2,"$(sys):$(dev)ConfigSetpt.PROC  PP")
+  field(DLY2,"6")
+  field(LNK2,"$(sys):$(dev)Clear.PROC  PP")
   field(DLY3,"0.2")
-  field(LNK3,"$(sys):$(dev)ArmStartSetpt.PROC  PP")
+  field(LNK3,"$(sys):$(dev)ChannelSetpt.PROC  PP")
   field(DLY4,"0.2")
-  field(LNK4,"$(sys):$(dev)ArmStopSetpt.PROC  PP")
+  field(LNK4,"$(sys):$(dev)ConfigSetpt.PROC  PP")
   field(DLY5,"0.2")
-  field(LNK5,"$(sys):$(dev)ArmTimerSetpt.PROC  PP")
+  field(LNK5,"$(sys):$(dev)ArmStartSetpt.PROC  PP")
   field(DLY6,"0.2")
-  field(LNK6,"$(sys):$(dev)TrigContSetpt.PROC  PP")
+  field(LNK6,"$(sys):$(dev)ArmStopSetpt.PROC  PP")
+  field(DLY7,"0.2")
+  field(LNK7,"$(sys):$(dev)ArmTimerSetpt.PROC  PP")
+  field(DLY8,"0.2")
+  field(LNK8,"$(sys):$(dev)TrigContSetpt.PROC  PP")
   field(FLNK,"$(sys):$(dev)SetSeq2")
 }
 
 record(seq,"$(sys):$(dev)SetSeq2") {
   field(DESC,"Set Config")
   field(ASG,"Internal")
-  field(DLY1,"0.2")
-  field(LNK1,"$(sys):$(dev)Attn.PROC  PP")
-  field(DLY2,"0.2")
-  field(LNK2,"$(sys):$(dev)FiltState.PROC  PP")
-  field(DLY3,"0.2")
-  field(LNK3,"$(sys):$(dev)Coupling.PROC  PP")
-  field(DLY4,"0.2")
-  field(LNK4,"$(sys):$(dev)Imped.PROC  PP")
   field(DLY5,"0.2")
   field(LNK5,"$(sys):$(dev)Arm.PROC  PP")
   field(DLY6,"1")
@@ -74,6 +71,7 @@ record(calc, "$(sys):$(dev)") {
   field(EGU, "MHz")
   field(PREC, "7")
   field(MDEL, "0.00000005")
+  field(HYST, "0.000005")
   field(HSV, "MINOR")
   field(LSV, "MINOR")
   field(HHSV, "MAJOR")
@@ -93,34 +91,6 @@ record(stringout,"$(sys):$(dev)Arm") {
   field(VAL,"INIT")
   field(DTYP,"HP53181A (GPIB)")
   field(OUT,"#L$(link) A$(address) @0")
-}
-
-record(bo, "$(sys):$(dev)Attn") {
-  field(DESC, "Freq Counter Inp Atten ")
-  field(DTYP, "HP53181A (GPIB)")
-  field(DOL,"$(attn)")
-  field(OUT, "#L$(link) A$(address) @4")
-}
-
-record(bo, "$(sys):$(dev)FiltState") {
-  field(DESC, "Freq Counter Filter Off/On")
-  field(DTYP, "HP53181A (GPIB)")
-  field(DOL,"$(filt)")
-  field(OUT, "#L$(link) A$(address) @5")
-}
-
-record(bo, "$(sys):$(dev)Coupling") {
-  field(DESC, "Freq Counter Inp Coupling")
-  field(DTYP, "HP53181A (GPIB)")
-  field(DOL,"$(coup)")
-  field(OUT, "#L$(link) A$(address) @6")
-}
-
-record(bo, "$(sys):$(dev)Imped") {
-  field(DESC, "Freq Counter Inp Impedance")
-  field(DTYP, "HP53181A (GPIB)")
-  field(DOL,"$(imped)")
-  field(OUT, "#L$(link) A$(address) @7")
 }
 
 record(stringin, "$(sys):$(dev)ID") {
@@ -143,4 +113,22 @@ record(stringin, "$(sys):$(dev)Status") {
   field(DTYP, "HP53181A (GPIB)")
   field(INP, "#L$(link) A$(address) @9")
   field(SDIS,"$(sys):$(dev)Disable  NPP NMS")
+}
+
+record(stringout,"$(sys):$(dev)ChannelSetpt") {
+  field(DESC,"Set Channel")
+  field(DTYP,"HP53181A (GPIB)")
+  field(OUT,"#L$(link) A$(address) @0")
+  field(ASG,"Internal")
+  field(VAL,"FUNC \"FREQ $(chan)\"")
+}
+
+record(bo,"$(sys):$(dev)Clear") {
+  field(DESC,"Device Clear")
+  field(DTYP, "HP53181A (GPIB)")
+  field(OUT,"#L$(link) A$(address) @10")
+  field(ASG,"Internal")
+  field(DOL,"1")
+  field(ZNAM,"NoClear")
+  field(ONAM,"Clear")
 }
