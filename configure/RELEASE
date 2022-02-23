@@ -9,7 +9,7 @@ TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
 -include $(TOP)/configure/RELEASE.local
 
 # ASYN is needed to compile asyn device support
-#ASYN=$(SUPPORT)/asyn-4-17
+ASYN=$(EPICS_MODULES)/asyn/R4.39-1.0.1
 
 # EPICS_BASE usually appears last so other apps can override stuff:
 #EPICS_BASE=/corvette/usr/local/epics/base-3.14.12.1
