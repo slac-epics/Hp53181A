@@ -1,5 +1,8 @@
 Release Notes for the Hp53181A RF Frequency Counter GPIB module
 ---------------------------------------------------------------
+R1.3.10: lorelli 11/15/2024:
+    Update to asyn/R4.39-1.0.2, streamdevice/R2.8.9-1.2.2
+
 R1.3.9: egumtow 2/22/2022:
         update to modules asyn/R4.39-1.0.1, streamdevice/R2.8.9-1.2.1
 
